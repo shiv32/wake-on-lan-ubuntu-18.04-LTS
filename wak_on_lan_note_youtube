@@ -1,0 +1,85 @@
+**********************************************
+By: Shiv Kumar Yadav
+Subject : wake on lan
+**********************************************
+All testing done in Ubuntu 18.04 LTS OS
+
+note 1 :->
+==> target pc must be connected to LAN cable to router.
+==> another pc may be connected to wifi/LAN cable to same router (LAN).
+
+Desktop : "wake on lan" is for Desktop pc bcoz its connected to psu permanently.
+
+laptop  : it need to conect to ac adapter to work wake on lan. 
+**********************************************
+note 2 :->
+
+==> first enable "wake on lan" option in bios.(in power management/in advanced)
+
+=================================
+install ethtool -->
+
+sudo apt-get update
+
+sudo apt-get install ethtool -y
+
+----------------------
+enable wol in interface -->
+
+sudo ethtool -s INTERFACE wol g
+eg.
+sudo ethtool -s eth0 wol g
+
+You can then check that it works by issuing:
+
+sudo ethtool eth0 | grep 'Wake-on: g'
+
+If Wake-on: g is indeed returned, then Wake-on-LAN is enabled on your machine.
+--------------------------------------------
+How to install WOL and send the magic packet -->
+
+sudo apt-get install wakeonlan -y
+
+usage ->
+wakeonlan MAC
+
+-----------------------
+mac address -->
+
+ifconfig -a interface_name | grep ether
+
+eg.
+ifconfig -a enp37s0 | grep ether
+
+
+suspend -->
+systemctl suspend
+
+----------------------------------------------------------------
+if tlp file is there then do otherwise not need -->
+set ->
+Set WOL_DISABLE=N in /etc/default/tlp
+-----------------------------------------------------------------
+install wireshark to capture wol-->
+
+sudo apt install wireshark -y
+
+--------------------------------------------------------------------
+====================================================================================
+====================================================================================
+refs -->
+
+https://www.howtogeek.com/70374/how-to-geek-explains-what-is-wake-on-lan-and-how-do-i-enable-it/
+https://a3nm.net/blog/wakeonlan.html
+https://www.techrepublic.com/article/how-to-enable-wake-on-lan-in-ubuntu-server-18-04/
+https://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
+https://unix.stackexchange.com/questions/318137/wake-on-lan-not-working-on-ubuntu-16-04
+--------------
+arch repo -->
+
+https://wiki.archlinux.org/index.php/Wake-on-LAN
+==================================
+https://unix.stackexchange.com/questions/318137/wake-on-lan-not-working-on-ubuntu-16-04
+=======================================================================================================
+
+
