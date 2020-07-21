@@ -65,6 +65,31 @@ install wireshark to capture wol-->
 sudo apt install wireshark -y
 
 --------------------------------------------------------------------
+====================================================================
+send magic packet from android -->
+
+1. install termux from app store.
+2. open termux and install wol -> 
+   apt install wol
+3. conect mobile to router and enter in termux
+   wol mac_of_pc
+note->
+1. access storage of mobile from termux enter this in termux
+
+    termux-setup-storage
+
+  this is one time activity.
+
+2.to make script in termux -->
+-----------------------
+#!/bin/sh
+wol mac_of_pc 
+------------------------
+run script->
+sh script.sh
+=======================================================================
+
+
 ====================================================================================
 ====================================================================================
 refs -->
