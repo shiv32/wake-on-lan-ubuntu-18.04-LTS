@@ -6,6 +6,7 @@ All testing done in Ubuntu 18.04 LTS OS
 
 note 1 :->
 ==> target pc must be connected to LAN cable to router.
+==> if target pc connected to wifi then still lan cable must be connected.
 ==> another pc may be connected to wifi/LAN cable to same router (LAN).
 
 Desktop : "wake on lan" is for Desktop pc bcoz its connected to psu permanently.
