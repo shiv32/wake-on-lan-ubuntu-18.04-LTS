@@ -65,8 +65,10 @@ install wireshark to capture wol-->
 
 sudo apt install wireshark -y
 
-OR <br/>
-Listen for wakeonlan request
+OR 
+
+Listen for wakeonlan request -->
+
 nc -ul -p 9
 
 --------------------------------------------------------------------
